@@ -252,8 +252,10 @@ class JdbcTypeConversion:
         :return:
         """
         # if the value is null return None
-        if resultset.wasNull():
-            return
+		# rsk5b: This doesn't work. 
+		# https://github.com/OpenBigDataPlatform/pyjdbc/issues/10
+        #if resultset.wasNull():
+        #    return
 
         if not isinstance(column_idx, int):
             raise ValueError('"column" invalid type, expected `int` got: {}'.format(type(column_idx)))
